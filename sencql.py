@@ -10,7 +10,7 @@ def on_click(event):
     pn.state.notifications.info('connect stared')
     try:
         dataBase = mysql.connector.connect(
-          host ="104.154.109.128",
+          host ="10.47.160.3",
           user ="root",
           passwd =">SbEPMLp=e_o[Vb#",
           database = "User_Dashboard"
