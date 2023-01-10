@@ -4,3 +4,4 @@ panel
 plotly
 holoviews
 hvplot
+mysql-connector-python
