@@ -1,16 +1,44 @@
 import mysql.connector
+import panel as pn
+pn.extension('tabulator',notifications=True)
 
-dataBase = mysql.connector.connect(
-  host ="104.154.109.128",
-  user ="root",
-  passwd =">SbEPMLp=e_o[Vb#",
-  database = "User_Dashboard"
-)
 
- 
+button = pn.widgets.Button(name = 'query')
+table =  pn.widgets.Tabulator()
 
-print(dataBase)
+def on_click(event):
+    pn.state.notifications.info('connect stared')
+    
+    dataBase = mysql.connector.connect(
+      host ="104.154.109.128",
+      user ="root",
+      passwd =">SbEPMLp=e_o[Vb#",
+      database = "User_Dashboard"
+    )
 
- 
 
-dataBase.close()
+    # preparing a cursor object
+    cursorObject = dataBase.cursor()
+
+    query = """
+    SELECT * FROM Persons
+    """
+    
+    cursorObject.execute(query)
+
+    myresult = cursorObject.fetchall()
+
+    for x in myresult:
+        pn.state.notifications.info(f'{x}')
+        print(x)
+    df = pd.DataFrame(myresult)
+    table.value = df
+    # disconnecting from server
+    dataBase.close()
+    pn.state.notifications.success('successful closed')
+
+button.on_click(on_click)
+pn.Column(
+    button,
+    table
+).servable();
