@@ -7,7 +7,8 @@ button = pn.widgets.Button(name = 'query')
 table =  pn.widgets.Tabulator()
 
 def on_click(event):
-    pn.state.notifications.info('connect stared')
+    #pn.state.notifications.info('connect stared')
+    print('Started')
     try:
         dataBase = mysql.connector.connect(
           host ="10.47.160.3",
@@ -16,7 +17,8 @@ def on_click(event):
           database = "User_Dashboard"
         )
     except Exception as e:
-        pn.state.notifications.info(f'connect faied: {e}')
+        print(e)
+        #pn.state.notifications.info(f'connect faied: {e}')
         return 
 
 
@@ -32,13 +34,13 @@ def on_click(event):
     myresult = cursorObject.fetchall()
 
     for x in myresult:
-        pn.state.notifications.info(f'{x}')
+        #pn.state.notifications.info(f'{x}')
         print(x)
     df = pd.DataFrame(myresult)
     table.value = df
     # disconnecting from server
     dataBase.close()
-    pn.state.notifications.success('successful closed')
+    #pn.state.notifications.success('successful closed')
 
 button.on_click(on_click)
 pn.Column(
