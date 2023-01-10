@@ -5,4 +5,4 @@ plotly
 holoviews
 hvplot
 mysql-connector-python
-socket
+sockets
