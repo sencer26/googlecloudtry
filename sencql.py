@@ -8,13 +8,16 @@ table =  pn.widgets.Tabulator()
 
 def on_click(event):
     pn.state.notifications.info('connect stared')
-    
-    dataBase = mysql.connector.connect(
-      host ="104.154.109.128",
-      user ="root",
-      passwd =">SbEPMLp=e_o[Vb#",
-      database = "User_Dashboard"
-    )
+    try:
+        dataBase = mysql.connector.connect(
+          host ="104.154.109.128",
+          user ="root",
+          passwd =">SbEPMLp=e_o[Vb#",
+          database = "User_Dashboard"
+        )
+    except Exception as e:
+        pn.state.notifications.info(f'connect faied: {e}')
+        return 
 
 
     # preparing a cursor object
