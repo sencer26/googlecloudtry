@@ -1,5 +1,13 @@
 import mysql.connector
 import panel as pn
+import socket   
+hostname=socket.gethostname()   
+IPAddr=socket.gethostbyname(hostname)   
+print("Your Computer Name is:"+hostname)   
+print("Your Computer IP Address is:"+IPAddr)
+
+
+
 pn.extension('tabulator',notifications=True)
 
 
