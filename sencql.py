@@ -11,8 +11,8 @@ def on_click(event):
     print('Started')
     try:
         dataBase = mysql.connector.connect(
-          #host ="10.47.160.3",
-          host ="104.154.109.128",
+          host ="10.47.160.3",
+          #host ="104.154.109.128",
           user ="root",
           passwd =">SbEPMLp=e_o[Vb#",
           database = "User_Dashboard"
