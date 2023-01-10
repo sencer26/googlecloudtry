@@ -14,5 +14,4 @@ COPY . ./
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Run the web service on container startup.
-#CMD panel serve sencql.py --address 0.0.0.0 --port 8080 --allow-websocket-origin="*"
-CMD python sencql.py
+CMD panel serve sencql.py --address 0.0.0.0 --port 8080 --allow-websocket-origin="*"
