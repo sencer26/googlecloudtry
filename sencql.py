@@ -21,7 +21,7 @@ def init_db_connection():
 
 def init_unix_connection_engine(db_config):    
     pool = sqlalchemy.create_engine(
-        sqlalchemy.engine.url.URL(
+        sqlalchemy.engine.url.URL.create(
             drivername="mysql+pymysql",
             #query={"unix_sock": "/cloudsql/jupyter-1-09042020:us-central1:sencql/.s.PGSQL.5432"},
             #query={"unix_sock": "/cloudsql/jupyter-1-09042020:us-central1:sencql"},
