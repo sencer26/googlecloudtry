@@ -22,7 +22,7 @@ def init_unix_connection_engine(db_config):
     pool = sqlalchemy.create_engine(
         sqlalchemy.engine.url.URL(
             drivername="postgres+pg8000",
-            query={"unix_sock": "/cloudsql/jupyter-1-09042020:us-central1:sencql/.s.PGSQL.5432"}
+            query={"unix_sock": "/cloudsql/jupyter-1-09042020:us-central1:sencql/.s.PGSQL.5432"},
             username="root",
             password=">SbEPMLp=e_o[Vb#",
             database="User_Dashboard",
