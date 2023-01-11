@@ -1,5 +1,6 @@
 import panel as pn
 import sqlalchemy
+import pandas as pd
 
 pn.extension('tabulator') #,notifications=True)
 
@@ -40,10 +41,13 @@ def on_click(event):
 
     with db.connect() as conn:
         # Execute the query and fetch all results
-        recent_votes = conn.execute(
-            "SELECT candidate, time_cast FROM votes "
-            "ORDER BY time_cast DESC LIMIT 5"
+        myresult = conn.execute(
+            "SELECT * FROM Persons "
         ).fetchall()
+        
+    df = pd.DataFrame(myresult)
+    table.value = df
+        
 
 
 button.on_click(on_click)
