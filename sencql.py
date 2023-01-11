@@ -1,6 +1,7 @@
 import panel as pn
 import pymysql
 import pandas as pd
+import sqlalchemy
 
 pn.extension('tabulator') #,notifications=True)
 
