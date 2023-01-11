@@ -7,3 +7,4 @@ hvplot
 mysql-connector-python
 sockets
 pymysql
+SQLAlchemy==1.3.20
